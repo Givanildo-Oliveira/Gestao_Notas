@@ -6,8 +6,8 @@ import jakarta.persistence.Column;
 @Table(name = "tecnologia")
 public class Tecnologia {
 	@Id
-	@GenerateValue(atrategy = GenerationType.IDENTITY)
-	private Log id;
+	@GenerateValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	@Column(nullable = false, unique = true, length = 50)
 	
@@ -22,6 +22,6 @@ public class Tecnologia {
 	
 	public string getName() {return name;}
 	
-	public void setName(String name) {this.Name= name;}
+	public void setName(String name) {this.Name = name;}
 }
 
