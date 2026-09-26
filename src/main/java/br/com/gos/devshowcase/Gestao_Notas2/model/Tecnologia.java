@@ -6,6 +6,10 @@ import jakarta.persistence.*;
 @Table(name = "tecnologia")
 public class Tecnologia {
 
+	public class TecnologiaResponse {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

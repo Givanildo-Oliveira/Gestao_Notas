@@ -6,14 +6,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import io.swagger.v3.oas.annotations.servers.Server;
+
 @Entity
 @Table(name = "projetos")
 @Getter
-@Setter
+@Server
 @NoArgsConstructor
 public class Projeto{
     @Id
@@ -39,6 +42,8 @@ public class Projeto{
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<FeedBack> feedbacks = new ArrayList<>();
 
+	private Set<Tecnologia> tecnologias;
+
     public Projeto(String title, String description, String repoUrl, Profile profile, Set<Tecnologia> tecnologias) {
         this.title = title;
         this.description = description;
@@ -48,6 +53,31 @@ public class Projeto{
     }
 
 	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Profile getProfile() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getRepoUrl() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Collection<Long> getTecnologias() {
 		// TODO Auto-generated method stub
 		return null;
 	}

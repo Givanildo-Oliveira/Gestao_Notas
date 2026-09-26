@@ -1,11 +1,14 @@
 // ProjectDTOs.java
 package br.com.gos.devshowcase.Gestao_Notas2.DTO;
 
+import br.com.gos.devshowcase.Gestao_Notas2.model.Profile;
 import br.com.gos.devshowcase.Gestao_Notas2.model.Projeto;
 import br.com.gos.devshowcase.Gestao_Notas2.model.Tecnologia;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.URL;
+
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -16,7 +19,17 @@ public final class ProjetoDTOs {
             @URL String repoUrl,
             @NotNull Long profileId,
             Set<Long> tecnologiaIds
-    ) {}
+    ) {
+
+		public Optional<Profile> technologyIds() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		public Optional<Profile> technologyIds1() {
+			// TODO Auto-generated method stub
+			return null;
+		}}
 
     public record ProjectResponseDTO(
             Long id,
