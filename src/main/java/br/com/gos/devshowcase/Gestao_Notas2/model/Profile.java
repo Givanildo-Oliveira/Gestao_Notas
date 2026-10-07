@@ -45,4 +45,9 @@ public class Profile {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public String getBio() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

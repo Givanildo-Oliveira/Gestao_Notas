@@ -26,5 +26,9 @@ public final class ProfileDTOs {
 		public ProfileResponseDTO(Long id2, String name2, String name3, String avatarUrl2, Long id3) {
 			// TODO Auto-generated constructor stub
 		}
+
+		public void ProfileResponse(Long id2, String name2, String name3, String avatarUrl2, Long id3) {
+			// TODO Auto-generated constructor stub
+		}
     }
 }
