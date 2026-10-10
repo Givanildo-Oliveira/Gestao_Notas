@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "feedBacks")
+@Table(name = "feedbacks")
 @Getter
 @NoArgsConstructor
 public class FeedBack {

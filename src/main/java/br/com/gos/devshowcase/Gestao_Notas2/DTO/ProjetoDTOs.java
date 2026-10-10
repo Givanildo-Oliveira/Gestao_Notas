@@ -52,4 +52,12 @@ public final class ProjetoDTOs {
             );
         }
     }
+ // Adicione este record dentro da classe ProjectDTOs
+    public record ProjectUpdateDTO(
+        String title,
+        String description,
+        @URL String repoUrl,
+        Set<Long> technologyIds
+    ) {}
+
 }

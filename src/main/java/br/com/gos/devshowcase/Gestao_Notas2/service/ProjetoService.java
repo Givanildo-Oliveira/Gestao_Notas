@@ -38,4 +38,29 @@ public class ProjetoService {
         var projeto = new Projeto(dto.title(), dto.description(), dto.repoUrl(), profile, tecnologias);
         return projetoRepository.save(projeto);
     }
+ // Adicione este método na classe ProjectService
+    public Project updateProject(Long id, ProjectDTOs.ProjectUpdateDTO dto) {
+        var project = projectRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Projeto com ID " + id + " não encontrado."));
+
+        if (dto.title() != null && !dto.title().isBlank()) {
+            project.setTitle(dto.title());
+        }
+        if (dto.description() != null && !dto.description().isBlank()) {
+            project.setDescription(dto.description());
+        }
+        if (dto.repoUrl() != null && !dto.repoUrl().isBlank()) {
+            project.setRepoUrl(dto.repoUrl());
+        }
+        
+        // Atualiza as tecnologias se a lista for fornecida
+        if (dto.technologyIds() != null) {
+            Set<Tecnologia> tecnologias = new HashSet<>(tecnologiaRepository.findAllById(dto.technologyIds()));
+            project.setTecnologias(tecnologias);
+        }
+
+        // O @Transactional no controller cuidará de salvar as alterações
+        return project;
+    }
+
 }

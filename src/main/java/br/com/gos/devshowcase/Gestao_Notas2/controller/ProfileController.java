@@ -31,4 +31,24 @@ public class ProfileController {
         var profile = repository.getReferenceById(id);
         return ResponseEntity.ok(new ProfileResponseDTO(profile));
     }
+ // Adicione este método ao ProfileController
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity<ProfileResponseDTO> update(@PathVariable Long id, @RequestBody @Valid ProfileUpdateDTO dto) {
+        var profile = repository.getReferenceById(id);
+        profile.updateInfo(dto);
+        return ResponseEntity.ok(new ProfileResponseDTO(profile));
+    }
+
+ // Adicione este método ao ProfileController
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        if (!repository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        repository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

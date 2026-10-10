@@ -40,4 +40,23 @@ public class ProjectController {
                 .collect(Collectors.toList());
         return ResponseEntity.ok(projects);
     }
+ // Adicione este método ao ProjectController
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity<ProjectResponseDTO> update(@PathVariable Long id, @RequestBody @Valid ProjectUpdateDTO dto) {
+        var project = service.updateProject(id, dto);
+        return ResponseEntity.ok(new ProjectResponseDTO(project));
+    }
+
+ // Adicione este método ao ProjectController
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        if (!repository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        repository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
